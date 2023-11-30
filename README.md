@@ -36,9 +36,9 @@ A adoção de um banco de dados relacional pela NexTrade foi essencial para supe
 
  ![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/2f06090b-0e60-4646-8f62-65e22c9c19f5)
 
-6	Estruturas e Scripts
+**6- Estruturas e Scripts**
 
-6.1	Tabelas
+**6.1 -Tabelas**
 
 Tabelas	Descrição
 clientes	Armazena as informações de cadastro dos clientes
