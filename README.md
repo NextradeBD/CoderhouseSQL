@@ -1,4 +1,6 @@
 # CoderhouseSQL
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/13405cd3-8c5d-4c83-b680-cfdd47301ced)
+
  ![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/2fc92dd8-0ea5-4b47-9d39-d5d8adb483d2)
 
 Banco de dados NexTrade
