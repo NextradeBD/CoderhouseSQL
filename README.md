@@ -101,6 +101,7 @@ As seções a seguir descrevem as visualizações incluídas no banco de dados N
 
 As seções a seguir descrevem os procedimentos armazenados criados no banco de dados Nextrade.
 
+
 **Procedimento sp_ordenar_clientes**
 
 O procedimento **sp_ordenar_clientes** ordena a tabela de clientes de acordo com a coluna escolhida e o tipo de ordenação: ascendente (ASC) ou decrescente (DESC);
@@ -110,7 +111,8 @@ Parâmetros
 
 • **ordenar:** parâmetro utilizado para ordenar a tabela de acordo com a coluna escolhida, onde, ordem = ‘ASC’ ou ‘DESC'.
 
-Valores retornados
+
+**Valores retornados**
 
 Essa função retorna todos os registros tabela de clientes, ordenada por ordem decrescente ou ascendente.
  
@@ -134,21 +136,21 @@ BEGIN
 END$$
 ```
 
-
 **Casos de uso**
 
 Ordenar a tabela "clientes" a partir da coluna "nome_completo" em ordem crescent:
 
-call sp_ordenar_clientes('nome_completo', 'asc');
+```call sp_ordenar_clientes('nome_completo', 'asc');```
 
- 
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/92572146-65d1-46a3-a446-5009b424059f) 
 
 Ordenar a tabela "clientes" a partir da coluna "cidade" em ordem decrescente:
 
-call sp_ordenar_clientes('cidade', 'desc');
+```call sp_ordenar_clientes('cidade', 'desc');```
+
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/3a509d87-a583-4b0a-abbd-e151cf069a78)
+
  
-
-
 **Procedimento sp_inserir_ fabricante**
 
 O procedimento **sp_inserir_ fabricante** faz a inserção de um registro dentro da tabela fabricantes.
@@ -165,24 +167,42 @@ O procedimento **sp_inserir_ fabricante** faz a inserção de um registro dentro
 	
 	Esse procedimento armazenado insere um novo registro da tabela fabricantes.
 
+```DELIMITER $$
 
- 
+-- Stored Procedure para inserir um registro na tabela fabricantes
+CREATE PROCEDURE sp_inserir_fabricante(
+    IN nomeFabricante CHAR(100),
+    IN informacoes CHAR(100),
+    IN tel CHAR(12),
+    IN email CHAR(100))
+BEGIN
+    IF nomeFabricante = '' OR informacoes = '' OR tel = '' OR email = '' THEN
+        -- Se algum dos parâmetros estiver vazio, mostre uma mensagem de erro.
+        SELECT 'ERRO: não foi possível criar o produto indicado';
+    ELSE
+        -- Caso contrário, insira os parâmetros como um novo registro na tabela.
+        INSERT INTO fabricantes (nome_fabricante, info, telefone, email)
+        VALUES (nomeFabricante, informacoes, tel, email);
+        -- Se a inserção for bem-sucedida, selecione os dados inseridos.
+        SELECT * FROM fabricantes ORDER BY fabricante_id DESC;
+    END IF;
+END$$``` 
 
 **Caso de uso**
 
 Inserindo um novo fabricante na tabela fabricantes:
 
-call dbnextrade.sp_inserir_fabricante('topmachine', 'impressoras de alta qualidade', '11987845781', 'topmachine@contato.com');
+```call dbnextrade.sp_inserir_fabricante('topmachine', 'impressoras de alta qualidade', '11987845781', 'topmachine@contato.com');```
 
-
- 
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/8ed29191-ada2-46e5-a9ac-11e1782d0bc3)
 
 
 **Procedimento sp_excluir_fabricante**
 
 O procedimento **sp_excluir_fabricante** faz a exclusão de um registro dentro da tabela fabricantes.
 
-Parâmetros
+
+**Parâmetros**
 
 • **fabricante_id:** parâmetro para informar o id do fabricante;
 
@@ -190,15 +210,34 @@ Parâmetros
 	
 	Esse procedimento armazenado elimina um registro específico da tabela fabricantes.
 
- 
+```DELIMITER $$
+
+-- Stored Procedure para excluir um registro na tabela fabricantes
+CREATE PROCEDURE sp_excluir_fabricante(
+       IN fabricante_id INT) -- ID do fabricante para excluir
+BEGIN
+    IF fabricante_id IS NULL THEN
+        -- Se o ID do fabricante estiver ausente, mostre uma mensagem de erro.
+        SELECT 'ERRO: informe o ID do fabricante para excluir.';
+    ELSE
+        -- Caso contrário, exclua o registro com base no fabricante_id.
+        SET @deletar = CONCAT("DELETE FROM fabricantes WHERE fabricante_id = ", fabricante_id);
+        PREPARE runSQL FROM @deletar;
+        EXECUTE runSQL;
+        DEALLOCATE PREPARE runSQL;
+        -- Se a exclusão for bem-sucedida, selecione uma mensagem de sucesso.
+        SELECT 'Registro excluído com sucesso.';
+    END IF;
+END$$``` 
 
 
 **Caso de uso**
 
 Excluindo um registro da tabela fabricantes a partir do fabricante_id:
 
-call dbnextrade.sp_excluir_fabricante(84);
+```call dbnextrade.sp_excluir_fabricante(84);```
 
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/8875b3da-092e-4cae-b37f-f310b6df8bc4)
  
 
 **6.4 -Funções**
