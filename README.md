@@ -411,14 +411,22 @@ O trigger **tr_categoria_update_log** cria um novo registro na tabela categoria_
 **7-Scripts de criação e inserção de dados**
 Abaixo, todos os links dos scripts de inserção de dados de tabelas que estão armazenados no repositório do github.
 
-[Criação do banco de dados]([http://exemplo.com/](https://github.com/NextradeBD/CoderhouseSQL/blob/main/01_criacao_das_tabelas.sql)
+[Criação do banco de dados](https://github.com/NextradeBD/CoderhouseSQL/blob/main/01_criacao_das_tabelas.sql)
+
 [Inserção de dados](https://github.com/NextradeBD/CoderhouseSQL/blob/main/02_insercao_de_dados.sql)
+
 [Views](https://github.com/NextradeBD/CoderhouseSQL/blob/main/03_criacao_de_views.sql)
+
 [Stored Procedures](https://github.com/NextradeBD/CoderhouseSQL/blob/main/05_criacao_de_SP.sql)
+
 [Functions](https://github.com/NextradeBD/CoderhouseSQL/blob/main/04_criacao_de_funcoes.sql)
+
 [Triggers](https://github.com/NextradeBD/CoderhouseSQL/blob/main/06_criacao_de_triggers.sql)
+
 [Sentenças DCL](https://github.com/NextradeBD/CoderhouseSQL/blob/main/07_criacao_permissao_usuarios.sql)
+
 [Sentenças TCL](https://github.com/NextradeBD/CoderhouseSQL/blob/main/08_sentencas-da-sublinguagem-tcl-commit-rollback-savepoint.sql)
+
 [Backup](https://github.com/NextradeBD/CoderhouseSQL/blob/main/09_backup_dados.sql)
 
 Script de criação do bando de dados 
