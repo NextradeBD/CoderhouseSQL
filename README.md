@@ -81,21 +81,64 @@ A adoção de um banco de dados relacional pela NexTrade foi essencial para supe
 
 **6.2-Views**
 As seções a seguir descrevem as visualizações incluídas no banco de dados Nextrade.
- 
-![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/9a7a1eee-3ed9-4ce5-8e08-0cf5188d34ec)
 
-![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/032d0f8b-c6a3-4166-b976-74e75fde3881)
 
-![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/f41c8fca-cc94-44c0-bae4-409394c2cbe2)
+**Retorna valor em dias do Top 50 das entregas mais rápidas**
+```
+CREATE VIEW entregas_mais_rapidas AS
+SELECT e.pedido_id, c.nome_completo, p.data_pedido, e.data_entrega, DATEDIFF(e.data_entrega, p.data_pedido) AS dias_entrega
+FROM entregas e
+LEFT JOIN clientes c ON e.cliente_id = c.cliente_id
+LEFT JOIN pedidos p ON p.pedido_id = e.pedido_id
+ORDER BY dias_entrega asc
+LIMIT 50;
+```
 
-![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/e8c724b6-00ea-4e29-bc9e-544c1efdf341)
+**Retonra a lista de todos os produtos vinculando a sua respectiva categoria**
+```
+CREATE VIEW produtos_e_categorias AS
+SELECT p.produto_id, p.nome_produto, ct.categoria_id, ct.nome_categoria from produtos p
+LEFT JOIN categoria ct ON p.categoria_id = ct.categoria_id;
+```
 
-![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/ed0bc488-96e4-4d3a-97bf-ca4f47d3e7f9)
+**Exibe a média geral de tempo de entrega dos pedidos**
+```
+CREATE VIEW media_dias_entrega AS
+SELECT ROUND(AVG(DATEDIFF(e.data_entrega, p.data_pedido)),2) AS media_dias_entrega
+FROM entregas e
+LEFT JOIN pedidos p ON p.pedido_id = e.pedido_id;
+```
 
-![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/7cc14aed-d1f5-4b54-bae0-d0e18357cc9e)
+**Clientes mais recorrentes: retorna a lista completa de todos os clientes que já compraram e sua recorrência**
+```
+CREATE VIEW clientes_mais_recorrentes AS
+SELECT COUNT(p.cliente_id) AS total_compras, p.cliente_id, c.nome_completo 
+FROM pedidos p
+LEFT JOIN clientes c ON p.cliente_id = c.cliente_id
+GROUP BY p.cliente_id, c.nome_completo
+ORDER BY total_compras DESC;
+```
 
-![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/6eea3ec9-cda1-4ffe-a50d-085f8f0d5db2)
+**Conta o total de entregas de cada transportadora**
+```
+CREATE VIEW total_entregas_transportadora AS
+SELECT t.nome_transportadora, count(*) AS total_entregas
+FROM transportadoras AS t
+JOIN entregas AS e ON e.transportadora_id = t.transportadora_id
+GROUP BY t.nome_transportadora
+ORDER BY total_entregas desc;
+```
 
+**Lista o top 10 dos produtos mais vendidos (em quantidade)**
+```
+CREATE VIEW top_10_produtos AS
+SELECT pr.nome_produto, count(*) AS total_vendido
+FROM pedidos AS pe
+JOIN produtos AS pr ON pe.produto_id = pr.produto_id
+GROUP BY pr.nome_produto
+ORDER BY total_vendido desc
+LIMIT 10;
+```
 
 **6.3-Store Procedures**
 
