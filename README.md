@@ -106,12 +106,33 @@ As seções a seguir descrevem os procedimentos armazenados criados no banco de 
 O procedimento **sp_ordenar_clientes** ordena a tabela de clientes de acordo com a coluna escolhida e o tipo de ordenação: ascendente (ASC) ou decrescente (DESC);
 Parâmetros
 
-• **campo:** parâmetro utilizado para escolher a coluna que será ordenada dentro da tabela clientes. 
+• **campo:** parâmetro utilizado para escolher a coluna que será ordenada dentro da tabela clientes.
 • **ordenar:** parâmetro utilizado para ordenar a tabela de acordo com a coluna escolhida, onde, ordem = ‘ASC’ ou ‘DESC'.
 
-Valores retornados	
+Valores retornados
+
 Essa função retorna todos os registros tabela de clientes, ordenada por ordem decrescente ou ascendente.
  
+DELIMITER $$
+CREATE PROCEDURE `sp_ordenar_clientes`(IN campo CHAR(20), IN ordenar CHAR(4))
+BEGIN
+	-- Verifique se o campo não está em branco
+	IF campo <> '' THEN
+		-- Concatenar a cláusula ORDER BY com a direção de ordenação
+		SET @cliente_ordenar = CONCAT('ORDER BY ', campo, ' ', ordenar);
+	-- Caso contrário, não faça nada
+	ELSE
+		SET @cliente_ordenar = '';
+	END IF;
+	-- Montar a consulta SQL
+	SET @ordem = CONCAT('SELECT * FROM clientes ', @cliente_ordenar);
+	-- Preparar e executar a consulta SQL
+	PREPARE runSQL FROM @ordem;
+	EXECUTE runSQL;
+	DEALLOCATE PREPARE runSQL;
+END$$
+
+
 
 **Casos de uso**
 
