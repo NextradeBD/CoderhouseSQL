@@ -401,7 +401,7 @@ O trigger **tr_clientes_update _log** cria um novo registro na tabela clientes_u
 
 **Trigger tr_categoria_add_log**
 
-O **trigger tr_categoria_add_log** cria um novo registro na tabela categoria_add_log toda vez que um novo registro é inserido na tabela categoria.
+O trigger **tr_categoria_add_log** cria um novo registro na tabela categoria_add_log toda vez que um novo registro é inserido na tabela categoria.
 
 **Trigger tr_categoria_update_log**
 
