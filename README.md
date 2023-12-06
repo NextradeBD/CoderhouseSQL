@@ -80,6 +80,7 @@ A adoção de um banco de dados relacional pela NexTrade foi essencial para supe
 
 
 **6.2-Views**
+
 As seções a seguir descrevem as visualizações incluídas no banco de dados Nextrade.
 
 
