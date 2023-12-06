@@ -259,21 +259,44 @@ A função **fn_get_cliente** traz o nome do cliente a partir de seu cliente_id.
 
 **Valores retornados**
 	
-	Essa função retorna uma lista com o nome completo dos clientes, pode ser associado a qualquer tabela que permita fazer essa associação com a coluna cliente_id.
+Essa função retorna uma lista com o nome completo dos clientes, pode ser associado a qualquer tabela que permita fazer essa associação com a coluna cliente_id.
 
- 
+```
+USE `dbnextrade`;
+DROP function IF EXISTS `fn_get_cliente`;
+
+DELIMITER $$
+CREATE FUNCTION `fn_get_cliente` (idCliente INT)
+RETURNS VARCHAR(200)
+DETERMINISTIC
+BEGIN
+DECLARE resultado VARCHAR(200);
+   	 -- Realiza a consulta de nome do jogo
+	SET resultado = (SELECT nome_completo FROM clientes WHERE cliente_id = idCliente);
+	RETURN resultado;
+END$$
+```
 
 **Casos de uso**
 
 Consulta simples, fazendo uma busca direta utilizando somente um id específico:
 
- 
+```
+USE dbnextrade;
+SELECT dbnextrade.fn_get_cliente(1);
+```
 
-
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/0486c595-264b-4091-ad57-45ad7bb5fa18)
 
 Consulta associada a uma tabela: no exemplo a seguir chamamos a função fn_get_cliente associada com a tabela de pedidos para conseguir identificar o nome dos clientes de cada registro de pedido.
 
- 
+```
+USE dbnextrade;
+SELECT *, fn_get_cliente (cliente_id) as nome_cnliente from pedidos
+```
+
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/dad26d57-83d4-418e-899f-4ba1b8da1fe6)
+
 
 **Função fn_idade_cliente**
 
@@ -285,19 +308,43 @@ Parâmetros
 
 **Valores retornados**
 	
-	Essa função retorna a idade do paciente.
+Essa função retorna a idade do paciente.
 
- 
+```
+USE `dbnextrade`;
+DROP function IF EXISTS `fn_idade_cliente`;
 
+DELIMITER $$
+CREATE FUNCTION `fn_idade_cliente` (id INT)
+RETURNS INT(4)
+DETERMINISTIC
+BEGIN
+  DECLARE idade INT(4);
+-- Calcula da idade do cliente
+  SET idade = (SELECT ROUND(DATEDIFF(CURRENT_DATE(), data_nasc)/365) FROM clientes WHERE cliente_id = id);
+  RETURN idade;
+END$$
+```
 
 **Casos de uso**
 
 Consulta rápida usando a id de um cliente para saber sua idade:
- 
+
+```
+USE dbnextrade;
+SELECT 'fn_idadei_cliente' (7) as idade;
+```
+
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/01a10535-5fa3-40aa-bca8-bc1cd13634a5)
  
 Consulta associada a uma tabela: no exemplo a seguir chamamos a função fn_idade_cliente associada com a tabela de clientes, onde não existe a coluna de idade, dessa forma conseguimos listar a idade de todos os clientes na tabela:
 
- 
+```
+USE dbnextrade;
+SELECT c.nome_completo, c.date_nasc, 'fn_idade_cliente' (cliente)id) as idade from clientes as c;
+```
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/ee84795b-00f5-4f13-85fe-7c4521f1435e)
+
 
 **Função fn_ tt_vezes_comprado**
 
