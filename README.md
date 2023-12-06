@@ -411,52 +411,23 @@ O trigger **tr_categoria_update_log** cria um novo registro na tabela categoria_
 **7-Scripts de criação e inserção de dados**
 Abaixo, todos os links dos scripts de inserção de dados de tabelas que estão armazenados no repositório do github.
 
-[Criação do banco de dados](https://github.com/NextradeBD/CoderhouseSQL/blob/main/01_criacao_das_tabelas.sql)
+**[Criação do banco de dados](https://github.com/NextradeBD/CoderhouseSQL/blob/main/01_criacao_das_tabelas.sql)**
 
-[Inserção de dados](https://github.com/NextradeBD/CoderhouseSQL/blob/main/02_insercao_de_dados.sql)
+**[Inserção de dados](https://github.com/NextradeBD/CoderhouseSQL/blob/main/02_insercao_de_dados.sql)**
 
-[Views](https://github.com/NextradeBD/CoderhouseSQL/blob/main/03_criacao_de_views.sql)
+**[Views](https://github.com/NextradeBD/CoderhouseSQL/blob/main/03_criacao_de_views.sql)**
 
-[Stored Procedures](https://github.com/NextradeBD/CoderhouseSQL/blob/main/05_criacao_de_SP.sql)
+**[Stored Procedures](https://github.com/NextradeBD/CoderhouseSQL/blob/main/05_criacao_de_SP.sql)**
 
-[Functions](https://github.com/NextradeBD/CoderhouseSQL/blob/main/04_criacao_de_funcoes.sql)
+**[Functions](https://github.com/NextradeBD/CoderhouseSQL/blob/main/04_criacao_de_funcoes.sql)**
 
-[Triggers](https://github.com/NextradeBD/CoderhouseSQL/blob/main/06_criacao_de_triggers.sql)
+**[Triggers](https://github.com/NextradeBD/CoderhouseSQL/blob/main/06_criacao_de_triggers.sql)**
 
-[Sentenças DCL](https://github.com/NextradeBD/CoderhouseSQL/blob/main/07_criacao_permissao_usuarios.sql)
+**[Sentenças DCL](https://github.com/NextradeBD/CoderhouseSQL/blob/main/07_criacao_permissao_usuarios.sql)**
 
-[Sentenças TCL](https://github.com/NextradeBD/CoderhouseSQL/blob/main/08_sentencas-da-sublinguagem-tcl-commit-rollback-savepoint.sql)
+**[Sentenças TCL](https://github.com/NextradeBD/CoderhouseSQL/blob/main/08_sentencas-da-sublinguagem-tcl-commit-rollback-savepoint.sql)**
 
-[Backup](https://github.com/NextradeBD/CoderhouseSQL/blob/main/09_backup_dados.sql)
-
-Script de criação do bando de dados 
-https://github.com/GuileSimon/CoderhouseSQL/blob/main/dbnextrade_create.sql
-
-Script inserção de dados 
-https://github.com/GuileSimon/CoderhouseSQL/blob/main/insert_database_nextrade
-
-Script criação de views
-https://github.com/GuileSimon/CoderhouseSQL/blob/main/views_dbnextrade
-
-Script criação de store procedures
-https://github.com/GuileSimon/CoderhouseSQL/blob/main/stored_procedures_dbnextrade
-
-Script criação de funções
-https://github.com/GuileSimon/CoderhouseSQL/blob/main/functions_dbnextrade
-
-Script criação de triggers
-https://github.com/GuileSimon/CoderhouseSQL/blob/main/triggers_dbnextrade
-
-Script criação de sentenças DCL
-https://github.com/GuileSimon/CoderhouseSQL/blob/main/users_sentencas
-
-Script criação TCL
-https://github.com/GuileSimon/CoderhouseSQL/blob/main/TCL_dbnextrade
-
-
-**Script de Backup**
-
-https://github.com/GuileSimon/CoderhouseSQL/blob/main/backup
+**[Backup](https://github.com/NextradeBD/CoderhouseSQL/blob/main/09_backup_dados.sql)**
 
 
 **8-Relatórios**
