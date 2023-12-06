@@ -94,7 +94,7 @@ ORDER BY dias_entrega asc
 LIMIT 50;
 ```
 
-**Retonra a lista de todos os produtos vinculando a sua respectiva categoria**
+**Retorna a lista de todos os produtos vinculando a sua respectiva categoria**
 ```
 CREATE VIEW produtos_e_categorias AS
 SELECT p.produto_id, p.nome_produto, ct.categoria_id, ct.nome_categoria from produtos p
