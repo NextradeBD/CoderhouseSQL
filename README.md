@@ -114,9 +114,10 @@ Parâmetros
 
 **Valores retornados**
 
-Essa função retorna todos os registros tabela de clientes, ordenada por ordem decrescente ou ascendente.
+Esse procedimento retorna todos os registros tabela de clientes, ordenada por ordem decrescente ou ascendente.
  
-```DELIMITER $$
+```
+DELIMITER $$
 CREATE PROCEDURE `sp_ordenar_clientes`(IN campo CHAR(20), IN ordenar CHAR(4))
 BEGIN
 	-- Verifique se o campo não está em branco
@@ -165,7 +166,7 @@ O procedimento **sp_inserir_ fabricante** faz a inserção de um registro dentro
 
 **Valores retornados**
 	
-	Esse procedimento armazenado insere um novo registro da tabela fabricantes.
+Esse procedimento armazenado insere um novo registro da tabela fabricantes.
 
 ```
 DELIMITER $$
