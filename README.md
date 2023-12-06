@@ -356,14 +356,36 @@ A função **fn_ tt_vezes_comprado** procura quantos registro a id do produto te
 
 **Valores retornados**
 
-	Essa função retorna a quantidade de vezes que o pedido foi comprado.
+Essa função retorna a quantidade de vezes que o pedido foi comprado.
 
- 
+```
+USE `dbnextrade`;
+DROP function IF EXISTS `fn_tt_vezes_comprado`;
+
+DELIMITER $$
+CREATE FUNCTION  `fn_tt_vezes_comprado` (idProduto INT)
+RETURNS INT
+DETERMINISTIC
+BEGIN
+  	 DECLARE totalPedidos INT;
+ 	  -- Use a função COUNT para contar os registros de pedidos com o ID de produto fornecido
+  	 SELECT COUNT(*) INTO totalPedidos
+ 	 FROM pedidos
+ WHERE produto_id = idProduto;
+ RETURN totalPedidos;
+END$$
+```
 
 **Caso de uso**
 
 Consulta rápida usando a id de um produto específico:
- 
+
+```
+USE dbnextrade;
+SELECT fn_tt_vezes_comprado (48) as total_compras;
+```
+
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/8f1159bb-e060-4fd2-8eca-c98e4eec4e20)
  
 **6.5-Triggers**
 
@@ -385,9 +407,8 @@ O **trigger tr_categoria_add_log** cria um novo registro na tabela categoria_add
 
 O trigger **tr_categoria_update_log** cria um novo registro na tabela categoria_update_log toda vez que é detectado a modificação de um registro na tabela categoria.
 
+
 **7-Scripts de criação e inserção de dados**
-
-
 Abaixo, todos os links dos scripts de inserção de dados de tabelas que estão armazenados no repositório do github.
 
 
@@ -423,10 +444,35 @@ https://github.com/GuileSimon/CoderhouseSQL/blob/main/backup
 
 **8-Relatórios**
 
+Lista de clientes com mais de 40 anos
+```
+SELECT cliente_id, nome_completo, data_nasc, celular, email,
+FLOOR(DATEDIFF(CURDATE(), data_nasc) / 365) AS idade 
+FROM clientes where FLOOR(DATEDIFF(CURDATE(), data_nasc) / 365) > 40;
 
+```
+
+Mostra a quantidade de entregas por região
+```
+SELECT r.nome_regiao, COUNT(e.cliente_id) AS quantidade_entregas
+FROM Entregas e
+JOIN Clientes c ON e.cliente_id = c.cliente_id
+JOIN Regiao r ON c.regiao_id = r.regiao_id
+GROUP BY r.nome_regiao
+ORDER BY quantidade_entregas desc;
+```
+
+Mostra o ticket médio por estado
+```
+SELECT c.estado, ROUND(AVG(p.valor), 2) AS ticket_medio
+FROM clientes c
+JOIN pedidos p ON c.cliente_id = p.cliente_id
+GROUP BY c.estado
+ORDER BY ticket_medio desc;
+```
 
 **9-Ferramentas e técnologias utilizadas**
 
-Nesse projeto foram utilizados as ferramentas: MySQL workbench.11
+Nesse projeto foram utilizados as ferramentas: MySQL workbench.11, ChatGPT e o Github.
 
 
