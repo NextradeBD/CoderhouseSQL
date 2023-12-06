@@ -167,7 +167,8 @@ O procedimento **sp_inserir_ fabricante** faz a inserção de um registro dentro
 	
 	Esse procedimento armazenado insere um novo registro da tabela fabricantes.
 
-```DELIMITER $$
+```
+DELIMITER $$
 
 -- Stored Procedure para inserir um registro na tabela fabricantes
 CREATE PROCEDURE sp_inserir_fabricante(
@@ -186,7 +187,8 @@ BEGIN
         -- Se a inserção for bem-sucedida, selecione os dados inseridos.
         SELECT * FROM fabricantes ORDER BY fabricante_id DESC;
     END IF;
-END$$``` 
+END$$
+``` 
 
 **Caso de uso**
 
@@ -208,9 +210,10 @@ O procedimento **sp_excluir_fabricante** faz a exclusão de um registro dentro d
 
 **Valores retornados**
 	
-	Esse procedimento armazenado elimina um registro específico da tabela fabricantes.
+Esse procedimento armazenado elimina um registro específico da tabela fabricantes.
 
-```DELIMITER $$
+```
+DELIMITER $$
 
 -- Stored Procedure para excluir um registro na tabela fabricantes
 CREATE PROCEDURE sp_excluir_fabricante(
@@ -228,7 +231,8 @@ BEGIN
         -- Se a exclusão for bem-sucedida, selecione uma mensagem de sucesso.
         SELECT 'Registro excluído com sucesso.';
     END IF;
-END$$``` 
+END$$
+``` 
 
 
 **Caso de uso**
