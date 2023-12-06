@@ -6,12 +6,12 @@
 Banco de dados NexTrade
 
 
-**1- Introdução**
+**1-Introdução**
 
 O banco de dados Nextrade foi desenvolvido por Guilherme Simões, Jonatas Barros e Tiago Firmino durante o curso de SQL da Coderhouse.
 O objetivo era construir um banco de dados totalmente estruturado e único, que permitisse a manipulação dos dados para geração de relatórios e insights relevantes. Todo o projeto foi realizado utilizando o MySQL Workbench.
 
-**2- Sobre Nextrade**
+**2-Sobre Nextrade**
 
 A NexTrade é uma renomada empresa do setor de comércio eletrônico, especializada em oferecer uma ampla variedade de produtos de alta qualidade aos consumidores. Fundada por três empreendedores visionários, a NexTrade tem como missão proporcionar uma experiência de compra excepcional aos seus clientes.
 
@@ -20,25 +20,25 @@ facilidade de uso e pela personalização. Nossa tecnologia avançada recomenda 
 satisfatória.
 
 
-**3- Objetivo**
+**3-Objetivo**
 
 O objetivo era construir um banco de dados totalmente estruturado e único, que permitisse a manipulação dos dados para geração de relatórios e insights relevantes. Todo o projeto foi realizado utilizando o MySQL Workbench.
 
-**4- Situação-problema**
+**4-Situação-problema**
 
 A NexTrade, um ecommerce em rápido crescimento, enfrentava desafios significativos em gerenciar eficientemente suas operações devido ao aumento constante no volume de transações, diversificação de produtos e a necessidade de fornecer uma experiência personalizada aos clientes. 
 Diante desses desafios, a NexTrade optou por migrar para um banco de dados relacional para garantir uma estrutura de dados mais organizada.
 A adoção de um banco de dados relacional pela NexTrade foi essencial para superar os desafios enfrentados com o crescimento do ecommerce, fornecendo uma estrutura mais robusta, eficiente e segura para o armazenamento e a recuperação de dados, além de possibilitar executar consultas complexas de forma eficiente, reunindo informações de várias tabelas para análises detalhadas. Isso é vital para compreender o comportamento do cliente, gerenciar inventário e otimizar estratégias de preços. Essa mudança permitiu que a empresa mantivesse seu foco na satisfação do cliente, na otimização de processos e no crescimento sustentável. 
 
-**5	Diagrama E-R**
+**5-Diagrama E-R**
 
 ***Figura 1 Schema Nextrade***
 
  ![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/2f06090b-0e60-4646-8f62-65e22c9c19f5)
 
-**6- Estruturas e Scripts**
+**6-Estruturas e Scripts**
 
-**6.1 -Tabelas**
+**6.1-Tabelas**
 
 Tabelas	Descrição
 clientes	Armazena as informações de cadastro dos clientes
@@ -84,7 +84,7 @@ Tabela: categoria
 Tabela: região
  
 
-6.2	Views
+**6.2-Views**
 As seções a seguir descrevem as visualizações incluídas no banco de dados Nextrade.
  
 
@@ -98,7 +98,7 @@ As seções a seguir descrevem as visualizações incluídas no banco de dados N
  
 
  
-6.3	Store Procedures
+**6.3-Store Procedures**
 
 As seções a seguir descrevem os procedimentos armazenados criados no banco de dados Nextrade.
 
@@ -180,7 +180,7 @@ call dbnextrade.sp_excluir_fabricante(84);
 
  
 
-6.4	Funções
+**6.4 -Funções**
 
 As seções a seguir descrevem as funções armazenadas incluídas no banco de dados Nextrade.
 
@@ -253,7 +253,8 @@ Caso de uso
 Consulta rápida usando a id de um produto específico:
  
  
-6.5	Triggers
+**6.5-Triggers**
+
 As seções a seguir descrevem os gatilhos no banco de dados NexTrade.
 
 Trigger tr_clientes_add_log
@@ -273,7 +274,7 @@ Trigger tr_categoria_update_log
 
 O trigger tr_categoria_update_log cria um novo registro na tabela categoria_update_log toda vez que é detectado a modificação de um registro na tabela categoria.
 
-7	Scripts de criação e inserção de dados
+**7-Scripts de criação e inserção de dados**
 
 
      	Abaixo, todos os links dos scripts de inserção de dados de tabelas que estão armazenados no repositório do github.
@@ -309,11 +310,11 @@ https://github.com/GuileSimon/CoderhouseSQL/blob/main/TCL_dbnextrade
 https://github.com/GuileSimon/CoderhouseSQL/blob/main/backup
 
 
-8	Relatórios
+**8-Relatórios**
 
 
 
-9- Ferramentas e técnologias utilizadas
+**9-Ferramentas e técnologias utilizadas**
 
 Nesse projeto foram utilizados as ferramentas: MySQL workbench.11
 
