@@ -95,12 +95,18 @@ ORDER BY dias_entrega asc
 LIMIT 50;
 ```
 
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/cd032306-db24-4f58-a8fd-deb1e2b2e5ed)
+
+
 **Retorna a lista de todos os produtos vinculando a sua respectiva categoria**
 ```
 CREATE VIEW produtos_e_categorias AS
 SELECT p.produto_id, p.nome_produto, ct.categoria_id, ct.nome_categoria from produtos p
 LEFT JOIN categoria ct ON p.categoria_id = ct.categoria_id;
 ```
+
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/91a35f22-75a1-4405-9e3f-c56e980029ef)
+
 
 **Exibe a média geral de tempo de entrega dos pedidos**
 ```
@@ -109,6 +115,9 @@ SELECT ROUND(AVG(DATEDIFF(e.data_entrega, p.data_pedido)),2) AS media_dias_entre
 FROM entregas e
 LEFT JOIN pedidos p ON p.pedido_id = e.pedido_id;
 ```
+
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/7cf88e96-21b8-41b7-a5a9-d67b30aa503d)
+
 
 **Clientes mais recorrentes: retorna a lista completa de todos os clientes que já compraram e sua recorrência**
 ```
@@ -120,6 +129,9 @@ GROUP BY p.cliente_id, c.nome_completo
 ORDER BY total_compras DESC;
 ```
 
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/6e9826d4-7539-4742-ac36-bd4bad300a3c)
+
+
 **Conta o total de entregas de cada transportadora**
 ```
 CREATE VIEW total_entregas_transportadora AS
@@ -129,6 +141,9 @@ JOIN entregas AS e ON e.transportadora_id = t.transportadora_id
 GROUP BY t.nome_transportadora
 ORDER BY total_entregas desc;
 ```
+
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/a8230a2f-68d1-489f-b60e-c7b1b80f540b)
+
 
 **Lista o top 10 dos produtos mais vendidos (em quantidade)**
 ```
@@ -140,6 +155,10 @@ GROUP BY pr.nome_produto
 ORDER BY total_vendido desc
 LIMIT 10;
 ```
+
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/4080a3b4-ccba-4be2-9b57-17ca1f6f58a2)
+
+
 
 **6.3-Store Procedures**
 
@@ -484,6 +503,9 @@ FROM clientes where FLOOR(DATEDIFF(CURDATE(), data_nasc) / 365) > 40;
 
 ```
 
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/1837c70f-c97b-48e3-889a-6c7f6d15eff9)
+
+
 Mostra a quantidade de entregas por região
 ```
 SELECT r.nome_regiao, COUNT(e.cliente_id) AS quantidade_entregas
@@ -494,6 +516,9 @@ GROUP BY r.nome_regiao
 ORDER BY quantidade_entregas desc;
 ```
 
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/9ae63790-ac82-43c1-aa08-3e3f51127889)
+
+
 Mostra o ticket médio por estado
 ```
 SELECT c.estado, ROUND(AVG(p.valor), 2) AS ticket_medio
@@ -502,6 +527,8 @@ JOIN pedidos p ON c.cliente_id = p.cliente_id
 GROUP BY c.estado
 ORDER BY ticket_medio desc;
 ```
+
+![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/a014ce3a-e7e5-4768-a4c5-c5b2a63c1d22)
 
 **9-Ferramentas e técnologias utilizadas**
 
