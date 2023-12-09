@@ -472,6 +472,7 @@ O trigger **tr_categoria_update_log** cria um novo registro na tabela categoria_
 
 
 **7-Scripts de criação e inserção de dados**
+
 Abaixo, todos os links dos scripts de inserção de dados de tabelas que estão armazenados no repositório do github.
 
 **[Criação do banco de dados](https://github.com/NextradeBD/CoderhouseSQL/blob/main/01_criacao_das_tabelas.sql)**
