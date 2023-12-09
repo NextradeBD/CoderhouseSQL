@@ -531,7 +531,7 @@ ORDER BY ticket_medio desc;
 
 ![image](https://github.com/NextradeBD/CoderhouseSQL/assets/152503285/a014ce3a-e7e5-4768-a4c5-c5b2a63c1d22)
 
-**9-Ferramentas e técnologias utilizadas**
+**9-Ferramentas e tecnologias utilizadas**
 
 Nesse projeto foram utilizados as ferramentas: MySQL workbench.11, ChatGPT e o Github.
 
