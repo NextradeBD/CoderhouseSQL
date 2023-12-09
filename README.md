@@ -5,38 +5,6 @@
 
 **Banco de dados NexTrade**
 
-**<h4>Índice<h4>**
-
-1 Introdução 
-
-2 Sobre Nextrade 
-
-3 Objetivo
-
-4 Situação-problema 
-
-5 Diagrama E-R
-
-6 Estrutura e scripts
-
-
-   6.1 Tabelas 
-   
-   6.2 ViewS 
-   
-   6.3	Stored Procedures 
-   
-   6.4	Funções 
-   
-   6.5	Triggers 
-   
-7 Scripts de inserção de dados 
-
-8 Relatórios 
-
-9 Ferramentas e tecnologias utilizadas 
-
-
 
 **1-Introdução**
 
